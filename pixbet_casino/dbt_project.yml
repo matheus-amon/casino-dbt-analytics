@@ -31,7 +31,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   pixbet_casino:
-    stg:
+    source:
       +materialized: view
-    mrt:
+    trusted:
+      +materialized: view
+    staging:
+      +materialized: view
+    prod:
       +materialized: table
