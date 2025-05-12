@@ -1,4 +1,4 @@
-with remove_columns_casino_bets as (
+with select_columns as (
     select
         id,
         win,
@@ -6,9 +6,8 @@ with remove_columns_casino_bets as (
         game_id,
         user_id,
         created_at,
-        updated_at,
         is_freespin
     from raw_casino_bets
 )
 
-select * from remove_columns_casino_bets
+select * from with select_columns
