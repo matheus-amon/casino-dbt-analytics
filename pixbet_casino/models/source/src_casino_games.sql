@@ -8,6 +8,7 @@ with select_columns as (
         environment,
         provider_id,
         mapped_category
+    from raw_casino_games
 )
 
 select * from select_columns
