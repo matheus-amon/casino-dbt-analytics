@@ -1,4 +1,4 @@
-with lucrative_games as (
+with revenue as (
     select
         cg.game_id,
         cb.created_date as date,
@@ -22,7 +22,7 @@ select
     sum(ggr) / sum(bet_amount) as margin,
     sum(case when fsb = 1 then ggr else 0 end) as fsb_ggr
 from
-    lucrative_games
+    revenue
 group by
     game_id,
     date

@@ -1,9 +1,12 @@
-with popular_bets as (
+with popularity as (
     select
         cg.game_id,
         cb.created_date as date,
         cb.bet_id,
         cb.user_id,
+        cb.bet_amount,
+        cb.win_amount,
+        cb.ggr,
         cb.fsb
     from
         {{ ref('trd_casino_bets') }} as cb
@@ -16,11 +19,11 @@ select
     game_id,
     date,
     count(distinct bet_id) as bets,
-    count(distinct user_id) as users,
-    count(distinct bet_id) / count(distinct user_id) as bets_per_user,
+    count(case when ggr > 0 then bet_id end) as wins,
+    count(case when ggr > 0 then bet_id end) / count(distinct user_id) as bets_per_user,
     count(case when fsb then bet_id end) as free_spins
 from
-    popular_bets
+    popularity
 group by
     game_id,
     date
