@@ -9,8 +9,8 @@ with changed_type_and_rename_columns as (
         cast(win as double precision) as win_amount,
         cast(stake - win as double precision) as ggr,
         cast((stake - win)-((stake - win) * 0.12) as double precision) as ngr,
-        cast(is_freespin as boolean) as is_free_spin
-        from {{ ref('src_casino_bets') }}
+        cast(is_freespin as boolean) as fsb
+    from {{ ref('src_casino_bets') }}
 )
 
 select * from changed_type_and_rename_columns
