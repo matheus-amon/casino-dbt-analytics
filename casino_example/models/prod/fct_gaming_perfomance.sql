@@ -37,31 +37,31 @@ with joined_tables as (
 )
 
 select
-    g.game_id as nk_game_id,
+    game_id as nk_game_id,
 
-    g.game_name as dsc_game_name,
-    g.game_environment as dsc_game_environment,
-    g.game_provider as dsc_game_provider,
-    g.sigap_category as dsc_sigap_category,
+    game_name as dsc_game_name,
+    game_environment as dsc_game_environment,
+    game_provider as dsc_game_provider,
+    sigap_category as dsc_sigap_category,
 
-    w.date as dt_game_date,
+    date as dt_game_date,
 
-    w.wins as mtr_wins,
-    w.gain as mtr_gain,
-    w.winners as mtr_winners,
-    w.avg_gain as mtr_avg_gain,
-    w.avg_gain_per_user as mtr_avg_gain_per_user,
-    w.rtp as mtr_rtp,
-    w.real_gain as mtr_real_gain,
-    w.fsb_gain as mtr_fsb_gain,
-    r.turnover as mtr_turnover,
-    r.avg_turnover_per_user as mtr_avg_turnover_per_user,
-    r.avg_ticket as mtr_avg_ticket,
-    r.ggr as mtr_ggr,
-    r.margin as mtr_margin,
-    r.fsb_ggr as mtr_fsb_ggr,
-    p.bets as mtr_bets,
-    p.bets_per_user as mtr_bets_per_user,
-    p.free_spins as mtr_fsbs
+    wins as mtr_wins,
+    gain as mtr_gain,
+    winners as mtr_winners,
+    avg_gain as mtr_avg_gain,
+    avg_gain_per_user as mtr_avg_gain_per_user,
+    rtp as mtr_rtp,
+    real_gain as mtr_real_gain,
+    fsb_gain as mtr_fsb_gain,
+    turnover as mtr_turnover,
+    avg_turnover_per_user as mtr_avg_turnover_per_user,
+    avg_ticket as mtr_avg_ticket,
+    ggr as mtr_ggr,
+    margin as mtr_margin,
+    fsb_ggr as mtr_fsb_ggr,
+    bets as mtr_bets,
+    bets_per_user as mtr_bets_per_user,
+    free_spins as mtr_fsbs
 
 from joined_tables
