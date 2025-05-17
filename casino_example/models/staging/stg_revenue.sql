@@ -17,10 +17,10 @@ select
     game_id,
     date,
     sum(bet_amount) as turnover,
-    sum(bet_amount) / count(distinct user_id) as avg_turnover_per_user,
-    count(distinct user_id) / sum(bet_amount) as avg_ticket,
+    sum(bet_amount) / nullif(count(distinct user_id), 0) as avg_turnover_per_user,
+    count(distinct user_id) / nullif(sum(bet_amount), 0) as avg_ticket,
     sum(ggr) as ggr,
-    sum(ggr) / sum(bet_amount) as margin,
+    sum(ggr) / nullif(sum(bet_amount), 0) as margin,
     sum(case when fsb = 1 then ggr else 0 end) as fsb_ggr
 from
     revenue
