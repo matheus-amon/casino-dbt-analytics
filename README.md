@@ -1,21 +1,60 @@
 # Casino DBT Analytics
 
-Este projeto é um repositório pessoal focado em modelagem e análise de dados de operações de cassino utilizando dbt (Data Build Tool). Ele foi desenvolvido para demonstrar habilidades práticas em engenharia de dados analíticos e business intelligence, sendo especialmente relevante para profissionais ou candidatos a cargos como Analytics Engineer, BI Analyst ou Data Analyst.
+Este projeto demonstra uma arquitetura moderna de dados analíticos para operações de cassino, utilizando dbt (Data Build Tool) para modelagem e transformação, além de Power BI para análise e visualização. A seguir, apresento um resumo do fluxo de dados e das principais camadas do projeto, ilustradas nas imagens abaixo.
 
-O projeto organiza os dados em quatro camadas de transformação:
-- **source** (dados brutos extraídos de sistemas de origem)
-- **trusted** (dados confiáveis, tratados e validados)
-- **staging** (pré-processamento e enriquecimento dos dados)
-- **prod** (modelos finais prontos para análises e dashboards)
+---
 
-Essa estrutura modular facilita a rastreabilidade, governança e reprodutibilidade das análises, além de permitir a construção de métricas e dimensões robustas para o negócio.
+## Arquitetura do Pipeline de Dados
 
-Além da modelagem e transformação dos dados, o projeto inclui um relatório interativo desenvolvido no Power BI, que explora os principais indicadores de performance, tendências e insights do ambiente de cassino. Isso demonstra a capacidade de entregar soluções completas, do pipeline de dados à visualização final, agregando valor estratégico para a tomada de decisão baseada em dados.
+![Arquitetura do Pipeline de Dados](./images/project-structure.excalidraw.png)
 
-Este repositório evidencia competências em:
-- Arquitetura de dados analíticos
-- Modelagem dimensional e pipelines ELT
-- Documentação e versionamento de projetos dbt
+A arquitetura é composta por múltiplas camadas, cada uma com um papel específico no processamento e governança dos dados:
+
+- **Raw Layer:**  
+  Dados brutos são extraídos de fontes como MySQL (AWS) e carregados em um banco PostgreSQL utilizando ferramentas como Airbyte e Docker.
+
+- **Source, Trusted, Staging e Prod Layers:**  
+  Os dados passam por camadas de transformação:
+  - **Source (Bronze):** Dados brutos extraídos dos sistemas de origem.
+  - **Trusted (Silver):** Dados tratados e validados.
+  - **Staging (Silver):** Pré-processamento e enriquecimento.
+  - **Prod (Gold):** Modelos finais prontos para análises e dashboards.
+  Essas transformações são realizadas com dbt e SQL, garantindo rastreabilidade e versionamento.
+
+- **BI & Reporting:**  
+  A camada final conecta o modelo de dados ao Power BI, onde são realizadas:
+  - Conexão e tipagem dos dados.
+  - Cálculo de KPIs e métricas usando DAX.
+  - Visualização e storytelling para tomada de decisão.
+
+---
+
+## Linhagem dos Dados (Data Lineage)
+
+![Lineage Graph](./images/dbt-lineage-graph.png)
+
+O gráfico de linhagem acima, gerado pelo dbt, mostra o fluxo dos dados desde as tabelas de origem (`src_casino_games`, `src_casino_bets`), passando pelas camadas intermediárias de transformação (`trd_*`, `stg_*`), até chegar ao modelo final de fato (`fct_gaming_performance`). Isso evidencia a transparência e rastreabilidade do pipeline.
+
+---
+
+## Exemplo de Modelo Final
+
+![Detalhes do Modelo fct_gaming_performance](./images/dbt-docs.png)
+
+O modelo `fct_gaming_performance` é um exemplo de tabela de fatos criada na camada Prod, consolidando métricas essenciais para análise de performance dos jogos de cassino. Ele inclui colunas como:
+- Identificadores e descrições dos jogos
+- Datas
+- Métricas de ganhos, apostas e popularidade
+
+---
+
+## Principais Competências Demonstradas
+
+- Arquitetura de dados analíticos em camadas
+- Modelagem dimensional e pipelines ELT com dbt
+- Governança, rastreabilidade e documentação de dados
 - Construção de dashboards e storytelling com Power BI
 
-Ideal para quem busca mostrar domínio técnico e visão de negócio em projetos de dados.
+---
+
+*Este projeto foi feito de demonstração e portfólio, os dados são meramente fictícios.*
