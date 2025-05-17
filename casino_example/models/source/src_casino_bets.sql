@@ -10,4 +10,4 @@ with select_columns as (
     from raw_casino_bets
 )
 
-select * from with select_columns
+select * from select_columns
