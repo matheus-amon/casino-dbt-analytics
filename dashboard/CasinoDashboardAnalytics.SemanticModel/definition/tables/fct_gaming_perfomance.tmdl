@@ -1,0 +1,244 @@
+table fct_gaming_perfomance
+	lineageTag: 719d2b42-8de1-47b7-9ec1-d27c9a31ef81
+
+	column nk_game_id
+		dataType: string
+		lineageTag: 368db791-ba40-4a99-a3cc-55eab5775058
+		summarizeBy: none
+		sourceColumn: nk_game_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dsc_game_name
+		dataType: string
+		lineageTag: 4e23956e-1145-44af-828b-3913cab521fe
+		summarizeBy: none
+		sourceColumn: dsc_game_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column dsc_game_environment
+		dataType: string
+		lineageTag: 8f027946-d30f-43e1-866b-bff8a6090b60
+		summarizeBy: none
+		sourceColumn: dsc_game_environment
+
+		annotation SummarizationSetBy = Automatic
+
+	column dsc_game_provider
+		dataType: string
+		lineageTag: c01d32a7-2d52-4ae2-ae21-3c36697dcab8
+		summarizeBy: none
+		sourceColumn: dsc_game_provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column dsc_sigap_category
+		dataType: string
+		lineageTag: 13d706cf-e18d-4b5b-8f83-735b9b7d410c
+		summarizeBy: none
+		sourceColumn: dsc_sigap_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b89ea14b-2df2-43ee-aa08-11b85da6d571
+		summarizeBy: none
+		sourceColumn: dt_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column mtr_wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 35548736-1171-43d9-8d74-7f043ef79cf4
+		summarizeBy: sum
+		sourceColumn: mtr_wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_gain
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: b338c4ee-697c-4068-8ce0-71af934bcb60
+		summarizeBy: sum
+		sourceColumn: mtr_gain
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_winners
+		dataType: int64
+		formatString: 0
+		lineageTag: d41f8686-0470-4b7f-8ed2-bbad76cb1afd
+		summarizeBy: sum
+		sourceColumn: mtr_winners
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_avg_gain
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: b30bc986-3437-4a47-97a1-6171e8b50f87
+		summarizeBy: sum
+		sourceColumn: mtr_avg_gain
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_avg_gain_per_user
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 47dfdcc8-36c6-49dd-9f0c-58bdeb8d7415
+		summarizeBy: sum
+		sourceColumn: mtr_avg_gain_per_user
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_rtp
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 75166463-6ef3-47e2-9673-9811e932cc80
+		summarizeBy: sum
+		sourceColumn: mtr_rtp
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_real_gain
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 4e1b92cc-6d4a-4708-97be-1d71c84b255d
+		summarizeBy: sum
+		sourceColumn: mtr_real_gain
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_fsb_gain
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 7e04e413-6834-4b09-aa43-391eedacb38d
+		summarizeBy: sum
+		sourceColumn: mtr_fsb_gain
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_turnover
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 3c6d0c43-5308-4999-9703-494a35445863
+		summarizeBy: sum
+		sourceColumn: mtr_turnover
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_avg_turnover_per_user
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 38545b5d-0d5e-41b1-9c2a-33257ac7c5c1
+		summarizeBy: sum
+		sourceColumn: mtr_avg_turnover_per_user
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_avg_ticket
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: d41c890e-b58c-462a-805d-7b7841621a7e
+		summarizeBy: sum
+		sourceColumn: mtr_avg_ticket
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_ggr
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: abe50726-a508-4699-9b00-ba7ef8a44c24
+		summarizeBy: sum
+		sourceColumn: mtr_ggr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_margin
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 08f2f415-7999-4727-a968-10370c7d00bd
+		summarizeBy: sum
+		sourceColumn: mtr_margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_fsb_ggr
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 3e87cac7-24b4-46eb-a1b7-343ba1ee1c9c
+		summarizeBy: sum
+		sourceColumn: mtr_fsb_ggr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column mtr_bets
+		dataType: int64
+		formatString: 0
+		lineageTag: f070e852-7bfe-456b-a246-267c61b1ec66
+		summarizeBy: sum
+		sourceColumn: mtr_bets
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_bets_per_user
+		dataType: int64
+		formatString: 0
+		lineageTag: ea5b2318-42ef-4b60-8876-83f17bfade4f
+		summarizeBy: sum
+		sourceColumn: mtr_bets_per_user
+
+		annotation SummarizationSetBy = Automatic
+
+	column mtr_fsbs
+		dataType: int64
+		formatString: 0
+		lineageTag: 04403367-7754-409e-8c33-19ecee5fca02
+		summarizeBy: sum
+		sourceColumn: mtr_fsbs
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_gaming_perfomance = m
+		mode: import
+		queryGroup: facts
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=RenderPG", [HierarchicalNavigation=true]),
+				    singledw_multi_tenant_Database = Fonte{[Name="singledw_multi_tenant",Kind="Database"]}[Data],
+				    public_Schema = singledw_multi_tenant_Database{[Name="public",Kind="Schema"]}[Data],
+				    fct_gaming_perfomance_Table = public_Schema{[Name="fct_gaming_perfomance",Kind="Table"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(fct_gaming_perfomance_Table,{{"nk_game_id", type text}, {"dsc_game_name", type text}, {"dsc_game_environment", type text}, {"dsc_game_provider", type text}, {"dsc_sigap_category", type text}, {"dt_date", type date}, {"mtr_wins", Int64.Type}, {"mtr_gain", Currency.Type}, {"mtr_winners", Int64.Type}, {"mtr_avg_gain", Currency.Type}, {"mtr_avg_gain_per_user", Currency.Type}, {"mtr_rtp", Percentage.Type}, {"mtr_real_gain", Currency.Type}, {"mtr_fsb_gain", Currency.Type}, {"mtr_turnover", Currency.Type}, {"mtr_avg_turnover_per_user", Currency.Type}, {"mtr_avg_ticket", Currency.Type}, {"mtr_ggr", Currency.Type}, {"mtr_margin", Percentage.Type}, {"mtr_fsb_ggr", Currency.Type}, {"mtr_bets", Int64.Type}, {"mtr_bets_per_user", Int64.Type}, {"mtr_fsbs", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

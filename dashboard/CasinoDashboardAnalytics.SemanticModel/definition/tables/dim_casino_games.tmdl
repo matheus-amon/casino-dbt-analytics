@@ -1,0 +1,88 @@
+table dim_casino_games
+	lineageTag: 92f5ccc9-b326-488a-9d11-8810838d0196
+
+	column game_id
+		dataType: string
+		lineageTag: 646404b4-d9a8-4321-a146-35826e855890
+		summarizeBy: none
+		sourceColumn: game_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column game_name
+		dataType: string
+		lineageTag: c08b3043-a565-4d54-8c87-b0b37f11f9da
+		summarizeBy: none
+		sourceColumn: game_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column game_active
+		dataType: int64
+		formatString: 0
+		lineageTag: ba11d0c1-3470-4bca-993d-f89a77606e28
+		summarizeBy: none
+		sourceColumn: game_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column game_category
+		dataType: string
+		lineageTag: 1bbcc149-b7fa-454f-8e7d-3b4b4ded7ed9
+		summarizeBy: none
+		sourceColumn: game_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 36d34b36-67f9-4999-bf78-151c3b2a08ea
+		summarizeBy: none
+		sourceColumn: created_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column game_environment
+		dataType: string
+		lineageTag: 7f4472b8-8a27-48e1-bbb5-6f11caa1d2f7
+		summarizeBy: none
+		sourceColumn: game_environment
+
+		annotation SummarizationSetBy = Automatic
+
+	column game_provider
+		dataType: string
+		lineageTag: 9c2991a1-551a-4782-b87e-b849c22c2933
+		summarizeBy: none
+		sourceColumn: game_provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigap_category
+		dataType: string
+		lineageTag: b9313e49-7a5b-4c69-a593-5cc5afdcd3dd
+		summarizeBy: none
+		sourceColumn: sigap_category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_casino_games = m
+		mode: import
+		queryGroup: dimensions
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=RenderPG", [HierarchicalNavigation=true]),
+				    singledw_multi_tenant_Database = Fonte{[Name="singledw_multi_tenant",Kind="Database"]}[Data],
+				    public_Schema = singledw_multi_tenant_Database{[Name="public",Kind="Schema"]}[Data],
+				    dim_casino_games_Table = public_Schema{[Name="dim_casino_games",Kind="Table"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(dim_casino_games_Table,{{"game_id", type text}, {"game_name", type text}, {"game_active", Int64.Type}, {"game_category", type text}, {"created_date", type date}, {"game_environment", type text}, {"game_provider", type text}, {"sigap_category", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

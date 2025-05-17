@@ -1,0 +1,64 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dim_casino_games",
+          "nodeLineageTag": "92f5ccc9-b326-488a-9d11-8810838d0196",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 321,
+            "y": 410
+          },
+          "nodeIndex": "fct_gaming_perfomance",
+          "nodeLineageTag": "719d2b42-8de1-47b7-9ec1-d27c9a31ef81",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 651,
+            "y": 0
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "6c4ad6c2-c0a7-4d40-bbdb-9966ec19abe8",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

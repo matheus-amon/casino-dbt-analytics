@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CasinoDashboardAnalytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1d17324e-5d53-495c-8ebf-fc8367cec8e9"
+  }
+}

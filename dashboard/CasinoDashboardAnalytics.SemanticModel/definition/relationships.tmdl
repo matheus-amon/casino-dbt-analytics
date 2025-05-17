@@ -1,0 +1,8 @@
+relationship aab5c9fc-85fc-d3e3-7a33-9e6da9c297d9
+	fromColumn: fct_gaming_perfomance.dt_date
+	toColumn: dim_date.date
+
+relationship 1d0b61b1-1760-f532-0057-fa1ad3aea87d
+	fromColumn: fct_gaming_perfomance.nk_game_id
+	toColumn: dim_casino_games.game_id
+
