@@ -12,4 +12,4 @@ with changed_type_and_rename_columns as (
 )
 
 select * from changed_type_and_rename_columns
-where game_active = true
+where game_active = 1
