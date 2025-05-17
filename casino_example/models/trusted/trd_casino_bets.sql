@@ -9,7 +9,7 @@ with changed_type_and_rename_columns as (
         cast(win as double precision) as win_amount,
         cast(stake - win as double precision) as ggr,
         cast((stake - win)-((stake - win) * 0.12) as double precision) as ngr,
-        cast(is_freespin as boolean) as fsb
+        cast(is_freespin as integer) as fsb
     from {{ ref('src_casino_bets') }}
 )
 
