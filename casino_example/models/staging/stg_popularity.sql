@@ -20,7 +20,7 @@ select
     date,
     count(distinct bet_id) as bets,
     count(case when ggr > 0 then bet_id end) / count(distinct user_id) as bets_per_user,
-    count(case when fsb then bet_id end) as free_spins
+    count(case when fsb = 1 then bet_id end) as free_spins
 from
     popularity
 group by
