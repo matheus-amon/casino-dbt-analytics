@@ -27,13 +27,12 @@ with joined_tables as (
         p.bets_per_user,
         p.free_spins
     from {{ ref('dim_casino_games') }} as g
-    left join {{ ref('stg_winnings') }} as w
+    inner join {{ ref('stg_winnings') }} as w
         on g.game_id = w.game_id and g.created_date = w.date
-    left join {{ ref('stg_revenue') }} as r
+    inner join {{ ref('stg_revenue') }} as r
         on w.game_id = r.game_id and w.date = r.date
-    left join {{ ref('stg_popularity') }} as p
-        on w.game_id = p.game_id and
-        w.date = p.date
+    inner join {{ ref('stg_popularity') }} as p
+        on w.game_id = p.game_id and w.date = p.date
 )
 
 select
@@ -44,7 +43,7 @@ select
     game_provider as dsc_game_provider,
     sigap_category as dsc_sigap_category,
 
-    date as dt_game_date,
+    date as dt_date,
 
     wins as mtr_wins,
     gain as mtr_gain,
