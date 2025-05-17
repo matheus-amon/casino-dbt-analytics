@@ -10,6 +10,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Power BI Project files
+cache.abf
+localSettings.json
+**/cache.abf
+**/localSettings.json
+
 # Distribution / packaging
 .Python
 build/
