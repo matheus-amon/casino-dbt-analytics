@@ -18,17 +18,16 @@ with winning as (
 select
     game_id,
     date,
-    count(case when win_amount > 0 then distinct bet_id end) as wins,
-    sum(win_amount) as win_amount,
-    count(case when win_amount > 0 then distinct user_id end) as winners,
-    count(distinct user_id) / sum(win_amount) as avg_gain,
-    sum(win_amount) / count(distinct user_id) as avg_win,
+    count(distinct case when win_amount > 0 then bet_id end) as wins,
+    sum(win_amount) as gain,
+    count(distinct case when win_amount > 0 then user_id end) as winners,
+    sum(win_amount) / count(distinct case when win_amount > 0 then bet_id end) as avg_gain,
+    sum(win_amount) / count(distinct user_id) as avg_gain_per_user,
     sum(win_amount) / sum(bet_amount) as rtp,
-    sum(case when cb.ggr > 0 then win_amount else 0 end) as real_gain,
-    sum(case when cb.fsb = 1 then win_amount else 0 end) as fsb_gain
+    sum(case when ggr > 0 then win_amount else 0 end) as real_gain,
+    sum(case when fsb = 1 then win_amount else 0 end) as fsb_gain
 from
     winning
 group by
     game_id,
     date
-
