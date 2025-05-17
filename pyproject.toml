@@ -1,5 +1,5 @@
 [project]
-name = "dbt-first-project"
+name = "casino-dbt-analytics"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
