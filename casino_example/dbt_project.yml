@@ -6,7 +6,7 @@ name: 'casino_example'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'pixbet_casino'
+profile: 'casino_example'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -31,11 +31,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   casino_example:
-    source:
-      +materialized: view
-    trusted:
-      +materialized: view
     staging:
       +materialized: view
-    prod:
+    marts:
       +materialized: table
