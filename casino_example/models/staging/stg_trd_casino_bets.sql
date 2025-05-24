@@ -1,3 +1,5 @@
+-- stg_trd_casino_bets.sql
+-- Lógica do antigo trd_casino_bets.sql
 with changed_type_and_rename_columns as (
     select
         cast(id as integer) as bet_id,
@@ -10,7 +12,7 @@ with changed_type_and_rename_columns as (
         cast(stake - win as double precision) as ggr,
         cast((stake - win)-((stake - win) * 0.12) as double precision) as ngr,
         cast(is_freespin as integer) as fsb
-    from {{ ref('src_casino_bets') }}
+    from {{ ref('stg_src_casino_bets') }}
 )
 
 select * from changed_type_and_rename_columns

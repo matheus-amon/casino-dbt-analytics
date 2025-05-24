@@ -1,3 +1,5 @@
+-- fct_gaming_perfomance.sql
+-- This is a simplified version for the marts layer
 with gaming_performance_base as (
     select
         w.game_id,
@@ -28,14 +30,11 @@ with gaming_performance_base as (
 
 select
     g.game_id as nk_game_id,
-
     g.game_name as dsc_game_name,
     g.game_environment as dsc_game_environment,
     g.game_provider as dsc_game_provider,
     g.sigap_category as dsc_sigap_category,
-
     b.date as dt_date,
-
     b.wins as mtr_wins,
     b.gain as mtr_gain,
     b.winners as mtr_winners,

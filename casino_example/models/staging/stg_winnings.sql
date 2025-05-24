@@ -9,9 +9,9 @@ with winning as (
         cb.ggr,
         cb.fsb
     from
-        {{ ref('trd_casino_bets') }} as cb
+        {{ ref('stg_trd_casino_bets') }} as cb
     left join
-        {{ ref('trd_casino_games') }} as cg
+        {{ ref('stg_trd_casino_games') }} as cg
         on cb.game_id = cg.game_id
 )
 

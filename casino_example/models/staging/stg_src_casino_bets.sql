@@ -1,3 +1,5 @@
+-- stg_src_casino_bets.sql
+-- Lógica do antigo src_casino_bets.sql
 with select_columns as (
     select
         id,

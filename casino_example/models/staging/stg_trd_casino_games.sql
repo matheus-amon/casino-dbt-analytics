@@ -1,3 +1,5 @@
+-- stg_trd_casino_games.sql
+-- Lógica do antigo trd_casino_games.sql
 with changed_type_and_rename_columns as (
     select
         cast(id as varchar) as game_id,
@@ -8,7 +10,7 @@ with changed_type_and_rename_columns as (
         cast(environment as varchar) as game_environment,
         cast(provider_id as varchar) as game_provider,
         cast(mapped_category as varchar) as sigap_category
-    from {{ ref('src_casino_games') }}
+    from {{ ref('stg_src_casino_games') }}
 )
 
 select * from changed_type_and_rename_columns

@@ -1,1 +1,1 @@
-select * from {{ ref('trd_casino_games') }}
+select * from {{ ref('stg_trd_casino_games') }}
