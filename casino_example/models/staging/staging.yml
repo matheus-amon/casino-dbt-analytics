@@ -1,0 +1,148 @@
+version: 2
+
+models:
+  - name: stg_src_casino_bets
+    description: "PT: Modelo de origem para dados de apostas. / EN: Source model for bets data."
+    columns:
+      - name: id
+        description: "PT: Identificador único da aposta. / EN: Unique identifier for the bet."
+      - name: win
+        description: "PT: Valor ganho na aposta. / EN: Amount won in the bet."
+      - name: stake
+        description: "PT: Valor apostado. / EN: Amount staked."
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: user_id
+        description: "PT: Identificador do usuário. / EN: User identifier."
+      - name: created_at
+        description: "PT: Data e hora da aposta. / EN: Date and time of the bet."
+      - name: is_freespin
+        description: "PT: Indica se a aposta foi um free spin. / EN: Indicates if the bet was a free spin."
+
+  - name: stg_src_casino_games
+    description: "PT: Modelo de origem para dados de jogos. / EN: Source model for games data."
+    columns:
+      - name: id
+        description: "PT: Identificador único do jogo. / EN: Unique identifier for the game."
+      - name: name
+        description: "PT: Nome do jogo. / EN: Name of the game."
+      - name: active
+        description: "PT: Indica se o jogo está ativo. / EN: Indicates if the game is active."
+      - name: category
+        description: "PT: Categoria do jogo. / EN: Category of the game."
+      - name: created_at
+        description: "PT: Data de criação do jogo. / EN: Creation date of the game."
+      - name: environment
+        description: "PT: Ambiente do jogo. / EN: Game environment."
+      - name: provider_id
+        description: "PT: Identificador do provedor do jogo. / EN: Game provider identifier."
+      - name: mapped_category
+        description: "PT: Categoria mapeada do jogo. / EN: Mapped category of the game."
+
+  - name: stg_trd_casino_bets
+    description: "PT: Modelo de transformação para dados de apostas, com tipos corrigidos e colunas renomeadas. / EN: Transformation model for bets data, with corrected types and renamed columns."
+    columns:
+      - name: bet_id
+        description: "PT: Identificador único da aposta. / EN: Unique identifier for the bet."
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: created_date
+        description: "PT: Data da aposta. / EN: Date of the bet."
+      - name: creation_time
+        description: "PT: Hora da aposta. / EN: Time of the bet."
+      - name: user_id
+        description: "PT: Identificador do usuário. / EN: User identifier."
+      - name: bet_amount
+        description: "PT: Valor apostado. / EN: Amount staked."
+      - name: win_amount
+        description: "PT: Valor ganho na aposta. / EN: Amount won in the bet."
+      - name: ggr
+        description: "PT: Receita bruta do jogo (Gross Gaming Revenue). / EN: Gross Gaming Revenue."
+      - name: ngr
+        description: "PT: Receita líquida do jogo (Net Gaming Revenue). / EN: Net Gaming Revenue."
+      - name: fsb
+        description: "PT: Flag indicando se foi um free spin. / EN: Flag indicating if it was a free spin."
+
+  - name: stg_trd_casino_games
+    description: "PT: Modelo de transformação para dados de jogos, com tipos corrigidos e colunas renomeadas, selecionando apenas jogos ativos. / EN: Transformation model for games data, with corrected types and renamed columns, selecting only active games."
+    columns:
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: game_name
+        description: "PT: Nome do jogo. / EN: Name of the game."
+      - name: game_active
+        description: "PT: Flag indicando se o jogo está ativo. / EN: Flag indicating if the game is active."
+      - name: game_category
+        description: "PT: Categoria do jogo. / EN: Category of the game."
+      - name: created_date
+        description: "PT: Data de criação do jogo. / EN: Creation date of the game."
+      - name: game_environment
+        description: "PT: Ambiente do jogo. / EN: Game environment."
+      - name: game_provider
+        description: "PT: Provedor do jogo. / EN: Game provider."
+      - name: sigap_category
+        description: "PT: Categoria mapeada do jogo. / EN: Mapped category of the game."
+
+  - name: stg_casino_bets
+    description: "PT: Pass-through para o modelo de apostas transformado. / EN: Pass-through for the transformed bets model."
+
+  - name: stg_casino_games
+    description: "PT: Pass-through para o modelo de jogos transformado. / EN: Pass-through for the transformed games model."
+
+  - name: stg_winnings
+    description: "PT: Modelo de agregação de ganhos por jogo e dia. / EN: Winnings aggregation model by game and day."
+    columns:
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: date
+        description: "PT: Data da agregação. / EN: Aggregation date."
+      - name: wins
+        description: "PT: Número de apostas vencedoras. / EN: Number of winning bets."
+      - name: gain
+        description: "PT: Valor total ganho. / EN: Total amount won."
+      - name: winners
+        description: "PT: Número de usuários únicos que ganharam. / EN: Number of unique users who won."
+      - name: avg_gain
+        description: "PT: Ganho médio por aposta vencedora. / EN: Average gain per winning bet."
+      - name: avg_gain_per_user
+        description: "PT: Ganho médio por usuário. / EN: Average gain per user."
+      - name: rtp
+        description: "PT: Retorno ao jogador (Return to Player). / EN: Return to Player."
+      - name: real_gain
+        description: "PT: Ganho real (considerando GGR > 0). / EN: Real gain (considering GGR > 0)."
+      - name: fsb_gain
+        description: "PT: Ganho de free spins. / EN: Free spins gain."
+
+  - name: stg_revenue
+    description: "PT: Modelo de agregação de receita por jogo e dia. / EN: Revenue aggregation model by game and day."
+    columns:
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: date
+        description: "PT: Data da agregação. / EN: Aggregation date."
+      - name: turnover
+        description: "PT: Valor total apostado. / EN: Total amount staked."
+      - name: avg_turnover_per_user
+        description: "PT: Turnover médio por usuário. / EN: Average turnover per user."
+      - name: avg_ticket
+        description: "PT: Ticket médio. / EN: Average ticket."
+      - name: ggr
+        description: "PT: Receita bruta do jogo (Gross Gaming Revenue). / EN: Gross Gaming Revenue."
+      - name: margin
+        description: "PT: Margem do GGR. / EN: GGR margin."
+      - name: fsb_ggr
+        description: "PT: GGR de free spins. / EN: Free spins GGR."
+
+  - name: stg_popularity
+    description: "PT: Modelo de agregação de popularidade por jogo e dia. / EN: Popularity aggregation model by game and day."
+    columns:
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: date
+        description: "PT: Data da agregação. / EN: Aggregation date."
+      - name: bets
+        description: "PT: Número total de apostas. / EN: Total number of bets."
+      - name: bets_per_user
+        description: "PT: Média de apostas por usuário. / EN: Average bets per user."
+      - name: free_spins
+        description: "PT: Número de free spins. / EN: Number of free spins."

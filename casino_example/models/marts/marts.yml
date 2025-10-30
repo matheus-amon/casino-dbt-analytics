@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: dim_casino_games
+    description: "PT: Tabela de dimensão com informações sobre os jogos de cassino. / EN: Dimension table with information about casino games."
+    columns:
+      - name: game_id
+        description: "PT: Identificador do jogo. / EN: Game identifier."
+      - name: game_name
+        description: "PT: Nome do jogo. / EN: Name of the game."
+      - name: game_active
+        description: "PT: Flag indicando se o jogo está ativo. / EN: Flag indicating if the game is active."
+      - name: game_category
+        description: "PT: Categoria do jogo. / EN: Category of the game."
+      - name: created_date
+        description: "PT: Data de criação do jogo. / EN: Creation date of the game."
+      - name: game_environment
+        description: "PT: Ambiente do jogo. / EN: Game environment."
+      - name: game_provider
+        description: "PT: Provedor do jogo. / EN: Game provider."
+      - name: sigap_category
+        description: "PT: Categoria mapeada do jogo. / EN: Mapped category of the game."
+
+  - name: fct_gaming_perfomance
+    description: "PT: Tabela de fatos com métricas de performance de jogos, agregadas por jogo e dia. / EN: Fact table with gaming performance metrics, aggregated by game and day."
+    columns:
+      - name: nk_game_id
+        description: "PT: Chave natural para o identificador do jogo. / EN: Natural key for the game identifier."
+      - name: dsc_game_name
+        description: "PT: Descrição do nome do jogo. / EN: Description of the game name."
+      - name: dsc_game_environment
+        description: "PT: Descrição do ambiente do jogo. / EN: Description of the game environment."
+      - name: dsc_game_provider
+        description: "PT: Descrição do provedor do jogo. / EN: Description of the game provider."
+      - name: dsc_sigap_category
+        description: "PT: Descrição da categoria mapeada do jogo. / EN: Description of the mapped game category."
+      - name: dt_date
+        description: "PT: Data da agregação. / EN: Aggregation date."
+      - name: mtr_wins
+        description: "PT: Métrica de número de apostas vencedoras. / EN: Metric for the number of winning bets."
+      - name: mtr_gain
+        description: "PT: Métrica de valor total ganho. / EN: Metric for the total amount won."
+      - name: mtr_winners
+        description: "PT: Métrica de número de usuários únicos que ganharam. / EN: Metric for the number of unique users who won."
+      - name: mtr_avg_gain
+        description: "PT: Métrica de ganho médio por aposta vencedora. / EN: Metric for the average gain per winning bet."
+      - name: mtr_avg_gain_per_user
+        description: "PT: Métrica de ganho médio por usuário. / EN: Metric for the average gain per user."
+      - name: mtr_rtp
+        description: "PT: Métrica de Retorno ao Jogador (Return to Player). / EN: Metric for Return to Player."
+      - name: mtr_real_gain
+        description: "PT: Métrica de ganho real (considerando GGR > 0). / EN: Metric for real gain (considering GGR > 0)."
+      - name: mtr_fsb_gain
+        description: "PT: Métrica de ganho de free spins. / EN: Metric for free spins gain."
+      - name: mtr_turnover
+        description: "PT: Métrica de valor total apostado. / EN: Metric for total amount staked."
+      - name: mtr_avg_turnover_per_user
+        description: "PT: Métrica de turnover médio por usuário. / EN: Metric for average turnover per user."
+      - name: mtr_avg_ticket
+        description: "PT: Métrica de ticket médio. / EN: Metric for average ticket."
+      - name: mtr_ggr
+        description: "PT: Métrica de Receita Bruta do Jogo (Gross Gaming Revenue). / EN: Metric for Gross Gaming Revenue."
+      - name: mtr_margin
+        description: "PT: Métrica da margem do GGR. / EN: Metric for GGR margin."
+      - name: mtr_fsb_ggr
+        description: "PT: Métrica de GGR de free spins. / EN: Metric for free spins GGR."
+      - name: mtr_bets
+        description: "PT: Métrica de número total de apostas. / EN: Metric for total number of bets."
+      - name: mtr_bets_per_user
+        description: "PT: Métrica da média de apostas por usuário. / EN: Metric for average bets per user."
+      - name: mtr_fsbs
+        description: "PT: Métrica de número de free spins. / EN: Metric for number of free spins."
