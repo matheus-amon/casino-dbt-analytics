@@ -61,6 +61,28 @@ consolidating the key metrics for casino game performance analysis. It carries:
 
 ---
 
+## Data tests
+
+Models are documented but also **tested** — 17 tests, split between dbt's
+built-in generics and singular SQL tests that encode the business rules:
+
+| Test | What it protects against |
+|---|---|
+| `assert_fact_grain_is_unique` | The left joins to `stg_revenue` / `stg_popularity` fanning out and silently inflating every measure |
+| `assert_rtp_within_bounds` | RTP is a ratio, so it must land in [0, 1] — anything else means a bad join upstream |
+| `assert_metrics_non_negative` | Accumulative measures going negative (double-counted reversals, bad sign convention) |
+| `assert_turnover_covers_bets` | One of the aggregations silently returning no rows for a game/day |
+| `unique` / `not_null` on keys | Duplicate or null dimension keys |
+| `relationships` fact → dim | Orphaned fact rows |
+
+Run them with:
+
+```bash
+dbt test
+```
+
+---
+
 ## Skills demonstrated
 
 - Layered analytics data architecture
