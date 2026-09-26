@@ -180,3 +180,7 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+# dbt build artifacts
+logs/
+casino_example/target/
+casino_example/dbt_packages/
